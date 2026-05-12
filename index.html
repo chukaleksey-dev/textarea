@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Синхронізація тексту</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .wrapper {
+      width: min(100%, 980px);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .textareas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 700;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 320px;
+      padding: 16px;
+      border: 2px solid #c9d4e5;
+      border-radius: 8px;
+      font: 18px/1.5 Arial, sans-serif;
+      resize: vertical;
+      background: #ffffff;
+      color: #172033;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #3677f5;
+      box-shadow: 0 0 0 3px rgba(54, 119, 245, 0.15);
+    }
+
+    textarea[readonly] {
+      background: #eef3fa;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .textareas {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrapper">
+    <h1>Копіювання тексту</h1>
+
+    <div class="textareas">
+      <div class="field">
+        <label for="leftText">Введіть текст зліва</label>
+        <textarea id="leftText" placeholder="Почніть писати тут..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="rightText">Текст з'явиться справа</label>
+        <textarea id="rightText" readonly placeholder="Тут буде такий самий текст"></textarea>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const leftText = document.getElementById('leftText');
+    const rightText = document.getElementById('rightText');
+
+    leftText.addEventListener('input', function () {
+      rightText.value = leftText.value;
+    });
+  </script>
+</body>
+
+</html>
