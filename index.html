@@ -26,6 +26,21 @@
       width: min(100%, 980px);
     }
 
+    .home-link {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      color: #3677f5;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .home-link:hover,
+    .home-link:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
     h1 {
       margin: 0 0 24px;
       text-align: center;
@@ -87,16 +102,20 @@
 </head>
 
 <body>
+  <a class="home-link" href="https://chukaleksey-dev.github.io/">На головну</a>
+
   <main class="wrapper">
     <h1>Копіювання тексту</h1>
 
     <div class="textareas">
       <div class="field">
+        <label for="leftText">Введіть текст зліва</label>
         <textarea id="leftText" placeholder="Почніть писати тут..."></textarea>
       </div>
 
       <div class="field">
-        <textarea id="rightText"></textarea>
+        <label for="rightText">Текст з'явиться справа</label>
+        <textarea id="rightText" readonly placeholder="Тут буде такий самий текст"></textarea>
       </div>
     </div>
   </main>
